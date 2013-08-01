@@ -25,6 +25,15 @@ public:
     }
 };
 
+class foo4
+{
+public:
+    void test()
+    {
+        std::cout<<"foo4\n";
+    }
+};
+
 void testthread()
 {
     foo2 f;
@@ -37,4 +46,7 @@ void testthread()
                        std::cout<<"foo3\n";
                    });
     t3.join();
+    foo4 f4;
+    std::thread t4(&foo4::test, &f4);
+    t4.join();
 }
